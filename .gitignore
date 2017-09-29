@@ -1,0 +1,11 @@
+
+
+
+*.pyc
+env
+streamxyz-env
+*.sqlite3
+logs/*.log
+staticfiles/*
+!staticfiles/README.md
+
