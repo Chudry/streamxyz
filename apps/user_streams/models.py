@@ -29,11 +29,23 @@ class StreamItemModel(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(default='')
     url = models.TextField()
+    video_url = models.TextField(null=True, blank=True)
     author = models.ForeignKey(User, related_name='user_stream_items')
     blacklist = models.BooleanField(default=False)
 
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '%s [%s]' % (self.title, self.author)
+
+    def save(self, *args, **kwargs):
+
+        if self.url:
+            if '//youtube.' in self.url or '.youtube.' in self.url:
+                self.video_url = self.url.replace("watch?v=", "embed/")
+        super(StreamItemModel, self).save(*args, **kwargs)
+
 
     class Meta:
         db_table = 'stream_item'

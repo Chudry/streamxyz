@@ -4,19 +4,8 @@
 
 <div class='row'>
   <div class="col-sm-8 blog-main">
-  <h4 class='banner'> Top Streams <i class="fa fa-bullhorn" aria-hidden="true"></i>  </h4>
 
-  {% for stream in streams %}
-  <div class="blog-post">
-    <a href='/streams/{{stream.id}}'><h2 class="blog-post-title">{{stream.name}}</h2></a>
-    {{stream.description}}
-  </div><!-- /.blog-post -->
-
-  {% endfor %}
-  <hr>
-
-
-  <h4 class='banner'> Top Collections <i class="fa fa-bars" aria-hidden="true"></i></h4>
+  <h4 class='banner'> Collections </h4>
 
   {% for collection in collections %}
   <div class="blog-post">
@@ -29,7 +18,7 @@
   </div>
 
   <div class="col-sm-3 offset-sm-1 blog-sidebar">
-
+    
   </div>
 </div>
 {% endblock %}

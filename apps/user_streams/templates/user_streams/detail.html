@@ -1,0 +1,40 @@
+{% extends "public_page.html" %}
+
+{% block public_page %}
+
+<div class='row'>
+  <div class="col-sm-8 blog-main">
+
+  <h4 class='blog-post-title'> <strong> <i class="fa fa-bullhorn" aria-hidden="true"></i> </strong>  {{stream.name}} </h4>
+
+  <div class="blog-post">
+    <p class="blog-post-meta">{{stream.created_on|date}} by <a>{{stream.author.username}}</a></p>
+    {{stream.description}}
+  </div><!-- /.blog-post -->
+
+  <h4 class='banner'> Items </h4>
+  {% for item in items %}
+  <div class="blog-post">
+    <p class="blog-post-meta">{{item.created_on|date}} by <a>{{item.author.username}}</a></p>
+    <a href='/streams/{{item.id}}'><h2 class="blog-post-title">{{item.title}}</h2></a>
+    {{item.description}} <br>
+    {% if item.url %}
+    [Link]: <a href='{{item.url}}' target='_blank'> {{item.url}} </a>
+    {% endif %}
+    {% if item.video_url %}
+    <iframe width="100%" height="400"
+      src="{{item.video_url}}">
+    </iframe>
+
+    {% endif %}
+  </div><!-- /.blog-post -->
+
+  {% endfor %}
+
+  </div>
+
+  <div class="col-sm-3 offset-sm-1 blog-sidebar">
+
+  </div>
+</div>
+{% endblock %}
