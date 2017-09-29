@@ -28,7 +28,7 @@ class CollectionItemModel(models.Model):
     collection = models.ForeignKey(CollectionModel)
     title = models.CharField(max_length=255)
     description = models.TextField(default='')
-    url = models.TextField()
+    url = models.TextField(null=True, blank=True)
     author = models.ForeignKey(User, related_name='user_collection_items')
     blacklist = models.BooleanField(default=False)
     video_url = models.TextField(null=True, blank=True)
@@ -42,6 +42,9 @@ class CollectionItemModel(models.Model):
         if self.url:
             if '//youtube.' in self.url or '.youtube.' in self.url:
                 self.video_url = self.url.replace("watch?v=", "embed/")
+        count = CollectionItemModel.objects.filter(
+            collection=self.collection).count()
+        self.order_index = count + 1
         super(CollectionItemModel, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -51,3 +54,4 @@ class CollectionItemModel(models.Model):
         db_table = 'collection_item'
         verbose_name = 'Collection Item'
         verbose_name_plural = 'Collection Items'
+        ordering = ['-order_index']

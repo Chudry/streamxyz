@@ -16,7 +16,7 @@
   {% for item in items %}
   <div class="blog-post">
     <p class="blog-post-meta">{{item.created_on|date}} by <a>{{item.author.username}}</a></p>
-    <a href='/streams/{{item.id}}'><h2 class="blog-post-title">{{item.title}}</h2></a>
+    <h2 class="blog-post-title">{{item.title}}</h2>
     {{item.description}} <br>
     {% if item.url %}
     [Link]: <a href='{{item.url}}' target='_blank'> {{item.url}} </a>
