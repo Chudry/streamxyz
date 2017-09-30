@@ -5,7 +5,7 @@ from urllib import parse
 
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
     "streamxyz.herokuapp.com", "www.streamxyz.com", "streamxyz.com"]
 
