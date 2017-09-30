@@ -10,7 +10,7 @@
   {% for collection in collections %}
   <div class="blog-post">
     <a href='/collections/{{collection.id}}'><h2 class="blog-post-title">{{collection.name}}</h2></a>
-    {{collection.description}}
+    {{collection.description|safe}}
   </div><!-- /.blog-post -->
 
   {% endfor %}
@@ -18,7 +18,7 @@
   </div>
 
   <div class="col-sm-3 offset-sm-1 blog-sidebar">
-    
+
   </div>
 </div>
 {% endblock %}

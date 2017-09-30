@@ -9,7 +9,7 @@
   {% for stream in streams %}
   <div class="blog-post">
     <a href='/streams/{{stream.id}}'><h2 class="blog-post-title">{{stream.name}}</h2></a>
-    {{stream.description}}
+    {{stream.description|safe}}
   </div><!-- /.blog-post -->
 
   {% endfor %}
@@ -21,7 +21,7 @@
   {% for collection in collections %}
   <div class="blog-post">
     <a href='/collections/{{collection.id}}'><h2 class="blog-post-title">{{collection.name}}</h2></a>
-    {{collection.description}}
+    {{collection.description|safe}}
   </div><!-- /.blog-post -->
 
   {% endfor %}
