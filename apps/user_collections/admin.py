@@ -26,7 +26,7 @@ class CollectionForm(forms.ModelForm):
 class CollectionItemInline(admin.StackedInline):
     model = CollectionItemModel
     form = CollectionItemForm
-    readonly_fields = ('author', )
+    readonly_fields = ('author', 'order_index', )
     extra = 2
 
 

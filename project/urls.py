@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'', include('core.urls')),
     url(r'^streams/', include('user_streams.urls')),
     url(r'^collections/', include('user_collections.urls')),
+    url(r'^quizzes/', include('quizzes.urls')),
 ]

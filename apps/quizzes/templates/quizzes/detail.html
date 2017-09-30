@@ -1,0 +1,174 @@
+{% extends "public_page.html" %}
+
+
+{% block meta_description %} {{quiz.description|truncatechars:200}} {% endblock %}
+{% block meta_keywords %} {{quiz.meta_keywords|truncatechars:200}} {% endblock %}
+
+{% block public_page %}
+
+
+
+<div class='row'>
+  <div class="col-sm-8 blog-main">
+
+  <a href='/quizzes'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Quizzes </a>
+  <br><br>
+  <h4 class='blog-post-title'> <strong> <i class="fa fa-bars" aria-hidden="true"></i> </strong> {{quiz.name}} </h4>
+
+  <div class="blog-post">
+    <p class="blog-post-meta">{{quiz.created_on|date}} by <a>{{quiz.author.username}}</a></p>
+    {{quiz.description|safe}}
+  </div><!-- /.blog-post -->
+
+  {% if show_answer %}
+    <p class='lead'> Thank you for taking the quiz. Your score is {{score}}. </p>
+  {% endif %}
+
+  <form action='' method='POST'>
+    {% csrf_token %}
+  <h4 class='banner'> Questions </h4>
+  {% for question, answers in questions %}
+  <div class="question-box">
+    <div class='row'>
+      <div class='col-sm-1'>
+        <b> {{question.order_index}} </b>
+      </div>
+      <div class='col-sm-11'>
+        {{question.question|safe}}
+      </div>
+    </div>
+    <hr>
+    <label class='question-label' for='question_{{question.order_index}}_option_a_answer'>
+      <div class='row'>
+        <div class='col-sm-2'>
+          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_a_answer' name='question_{{question.order_index}}_option_a_answer'>
+        </div>
+        <div class='col-sm-10
+        {% if show_answer %}
+          {% if answers.option_a_answer %}
+            {% if question.option_a_correct %}
+              answer-correct
+            {% else %}
+              answer-incorrect
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        '>
+          {{question.option_a|safe}}
+        </div>
+      </div>
+    </label>
+    <br>
+    <label class='question-label' for='question_{{question.order_index}}_option_b_answer'>
+      <div class='row'>
+        <div class='col-sm-2'>
+          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_b_answer' name='question_{{question.order_index}}_option_b_answer'>
+        </div>
+        <div class='col-sm-10
+        {% if show_answer %}
+          {% if answers.option_b_answer %}
+            {% if question.option_b_correct %}
+              answer-correct
+            {% else %}
+              answer-incorrect
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        '>
+          {{question.option_b|safe}}
+        </div>
+      </div>
+    </label>
+
+    <label class='question-label' for='question_{{question.order_index}}_option_c_answer'>
+      <div class='row'>
+        <div class='col-sm-2'>
+          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_c_answer' name='question_{{question.order_index}}_option_c_answer'>
+        </div>
+        <div class='col-sm-10
+        {% if show_answer %}
+          {% if answers.option_c_answer %}
+            {% if question.option_c_correct %}
+              answer-correct
+            {% else %}
+              answer-incorrect
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        '>
+          {{question.option_c|safe}}
+        </div>
+      </div>
+    </label>
+
+    <label class='question-label' for='question_{{question.order_index}}_option_d_answer'>
+      <div class='row'>
+        <div class='col-sm-2'>
+          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_d_answer' name='question_{{question.order_index}}_option_d_answer'>
+        </div>
+        <div class='col-sm-10
+        {% if show_answer %}
+          {% if answers.option_d_answer %}
+            {% if question.option_d_correct %}
+              answer-correct
+            {% else %}
+              answer-incorrect
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        '>
+          {{question.option_d|safe}}
+        </div>
+      </div>
+    </label>
+    {% if show_answer %}
+    <hr>
+    Correct Answer/s:
+    {% if question.option_a_correct %}
+      <span>A</span> &nbsp;
+    {% endif %}
+    {% if question.option_b_correct %}
+      <span>B</span> &nbsp;
+    {% endif %}
+    {% if question.option_c_correct  %}
+      <span>C</span> &nbsp;
+    {% endif %}
+    {% if question.option_d_correct %}
+      <span>D</span> &nbsp;
+    {% endif %}
+
+    <hr>
+    <div class='question-explanation'>
+      <i> Explanation </i> {{question.explanation|safe}}
+    </div>
+    {% endif %}
+  </div><!-- /.question-box-->
+
+  {% endfor %}
+
+  {% if show_answer %}
+  <div class='row'>
+    <div class='col-sm-12'>
+      <a class='btn btn-info btn-lg' href='/quizzes/{{quiz.id}}/{{quiz.slug}}/'>
+        Take Quiz Again
+      </a>
+    </div>
+  </div>
+  {% else %}
+  <div class='row'>
+    <div class='col-sm-12'>
+      <input type='submit' value='Submit' class='btn btn-info btn-lg'>
+    </div>
+  </div>
+  {% endif %}
+
+    <br>
+  </form>
+
+  </div>
+
+  <div class="col-sm-3 offset-sm-1 blog-sidebar">
+
+  </div>
+</div>
+{% endblock %}

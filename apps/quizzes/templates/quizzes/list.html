@@ -1,0 +1,35 @@
+{% extends "public_page.html" %}
+
+
+{% block public_page %}
+
+<div class='row'>
+  <div class='col-sm-12'>
+<div class="blog-header">
+  <div class="container">
+    <h2 class="blog-title"> <i class="fa fa-bars" aria-hidden="true"></i> Quizzes </h2>
+    <p class="lead blog-description"> New and Trending.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<div class='row'>
+  <div class="col-sm-8 blog-main">
+
+
+  {% for quiz in quizzes %}
+  <div class="blog-post">
+    <a href='/quizzes/{{quiz.id}}/{{quiz.slug}}/'><h2 class="blog-post-title">{{quiz.name}}</h2></a>
+    {{quiz.description|safe}}
+  </div><!-- /.blog-post -->
+
+  {% endfor %}
+
+  </div>
+
+  <div class="col-sm-3 offset-sm-1 blog-sidebar">
+
+  </div>
+</div>
+{% endblock %}

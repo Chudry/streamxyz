@@ -51,9 +51,10 @@ class CollectionItemModel(models.Model):
         if self.url:
             if '//youtube.' in self.url or '.youtube.' in self.url:
                 self.video_url = self.url.replace("watch?v=", "embed/")
-        count = CollectionItemModel.objects.filter(
-            collection=self.collection).count()
-        self.order_index = count + 1
+        if not self.pk:
+            count = CollectionItemModel.objects.filter(
+                collection=self.collection).count()
+            self.order_index = count + 1
         super(CollectionItemModel, self).save(*args, **kwargs)
 
     def __str__(self):

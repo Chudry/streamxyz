@@ -6,3 +6,33 @@
   padding: 5px;
   margin-bottom: 20px;
 }
+
+
+.question-label{
+  display: block;
+}
+
+.question-checkbox{
+  margin-top: 7px;
+}
+
+.question-box{
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+
+.question-explanation{
+  font-family: sans-serif;
+}
+
+
+.answer-correct{
+  border: 1px solid green;
+}
+
+.answer-incorrect{
+  border: 1px solid red;
+}
