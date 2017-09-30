@@ -3,9 +3,19 @@
 {% block public_page %}
 
 <div class='row'>
+  <div class='col-sm-12'>
+<div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title"> <i class="fa fa-bars" aria-hidden="true"></i> Collections </h1>
+    <p class="lead blog-description"> New and Trending.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<div class='row'>
   <div class="col-sm-8 blog-main">
 
-  <h4 class='banner'> Collections </h4>
 
   {% for collection in collections %}
   <div class="blog-post">

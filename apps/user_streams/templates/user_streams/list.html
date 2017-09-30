@@ -2,14 +2,24 @@
 
 {% block public_page %}
 
+
+<div class='row'>
+  <div class='col-sm-12'>
+<div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Streams </h1>
+    <p class="lead blog-description"> New and Trending.</p>
+  </div>
+</div>
+</div>
+</div>
+
 <div class='row'>
   <div class="col-sm-8 blog-main">
 
-  <h4 class='banner'> Streams </h4>
-
   {% for stream in streams %}
   <div class="blog-post">
-    <a href='/streams/{{stream.id}}'><h2 class="blog-post-title">{{stream.name}}</h2></a>
+    <a href='/streams/{{stream.id}}'><h2 class="blog-post-title">{{stream.name}} </h2></a>
     {{stream.description|safe}}
   </div><!-- /.blog-post -->
 
