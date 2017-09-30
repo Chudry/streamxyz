@@ -26,6 +26,16 @@
 
   {% endfor %}
 
+  <h4 class='banner'> Top Quizzes <i class="fa fa-bars" aria-hidden="true"></i></h4>
+
+  {% for quiz in quizzes %}
+  <div class="blog-post">
+    <a href='/quizzes/{{quiz.id}}/{{quiz.slug}}/'><h2 class="blog-post-title">{{quiz.name}}</h2></a>
+    {{quiz.description|safe}}
+  </div><!-- /.blog-post -->
+
+  {% endfor %}
+
   </div>
 
   <div class="col-sm-3 offset-sm-1 blog-sidebar">

@@ -5,6 +5,7 @@ from django.views import View
 
 from user_streams.models import StreamModel
 from user_collections.models import CollectionModel
+from quizzes.models import QuizModel
 
 
 class HomeView(View):
@@ -13,5 +14,6 @@ class HomeView(View):
         context = {
             'streams': StreamModel.objects.all()[0:10],
             'collections': CollectionModel.objects.all()[0:10],
+            'quizzes': QuizModel.objects.all()[0:10]
         }
         return render(request, 'core/home.html', context)
