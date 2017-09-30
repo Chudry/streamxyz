@@ -7,7 +7,7 @@ class StreamModel(models.Model):
     """ stream is like a channel/broadcast,
         where users shares information frequently """
     name = models.CharField(max_length=255)
-    slug = models.SlugField(default='stream')
+    slug = models.SlugField(default='stream', max_length=300)
     description = models.TextField(default='')
     keywords = models.CharField(max_length=255, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)

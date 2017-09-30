@@ -7,7 +7,7 @@ class CollectionModel(models.Model):
     """ collection is like a place where user stores his favorite items
     """
     name = models.CharField(max_length=255)
-    slug = models.SlugField(default='collection')
+    slug = models.SlugField(default='collection', max_length=300)
     description = models.TextField(default='')
     keywords = models.CharField(max_length=255, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
