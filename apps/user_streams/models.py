@@ -1,18 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 class StreamModel(models.Model):
     """ stream is like a channel/broadcast,
         where users shares information frequently """
     name = models.CharField(max_length=255)
+    slug = models.SlugField(default='stream')
     description = models.TextField(default='')
+    keywords = models.CharField(max_length=255, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, related_name='user_streams')
     private = models.BooleanField(default=False)
     blacklist = models.BooleanField(default=False)
     views = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(StreamModel, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return '%s [%s]' % (self.name, self.author)
@@ -28,6 +36,7 @@ class StreamItemModel(models.Model):
     stream = models.ForeignKey(StreamModel)
     title = models.CharField(max_length=255)
     description = models.TextField(default='')
+    keywords = models.CharField(max_length=255, null=True, blank=True)
     url = models.TextField(null=True, blank=True)
     video_url = models.TextField(null=True, blank=True)
     author = models.ForeignKey(User, related_name='user_stream_items')

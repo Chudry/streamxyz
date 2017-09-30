@@ -1,6 +1,11 @@
 {% extends "public_page.html" %}
 
+
+{% block meta_description %} {{collection.description|truncatechars:200}} {% endblock %}
+{% block meta_keywords %} {{collection.meta_keywords|truncatechars:200}} {% endblock %}
+
 {% block public_page %}
+
 
 
 <div class='row'>

@@ -8,6 +8,6 @@ from . import views
 urlpatterns = [
 
     url(r'^$', views.StreamList.as_view()),
-    url(r'^(?P<pk>[0-9]+)/$', views.StreamDetail.as_view()),
+    url(r'^(?P<pk>[0-9]+)/(?P<slug>[-\w]+)/$', views.StreamDetail.as_view()),
 
 ]

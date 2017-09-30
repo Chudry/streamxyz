@@ -8,6 +8,6 @@ from . import views
 urlpatterns = [
 
     url(r'^$', views.CollectionList.as_view()),
-    url(r'^(?P<pk>[0-9]+)/$', views.CollectionDetail.as_view()),
+    url(r'^(?P<pk>[0-9]+)/(?P<slug>[-\w]+)/$', views.CollectionDetail.as_view()),
 
 ]

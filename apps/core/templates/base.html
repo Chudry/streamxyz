@@ -5,10 +5,13 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title> Stream X|Y|Z </title>
+  <title> {% block title %} Stream XYZ  {% endblock %}</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name='description' content='{% block meta_description %}Share, Discover and Organize Content with simple tools.{% endblock %}'>
+  <meta name='keywords' content='{% block meta_keywords %} Share Content, Bookmark, Entertainment, Fashion, Learning Resources, Book reviews.{% endblock %}'>
+  <meta name='robots' content='index, follow'>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- Latest compiled and minified CSS -->
   <!-- Later to be replaced by webpack bundles -->

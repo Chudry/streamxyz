@@ -20,7 +20,7 @@ class CollectionList(View):
 
 class CollectionDetail(View):
 
-    def get(self, request, pk):
+    def get(self, request, pk, slug):
         collection = CollectionModel.objects.get(id=pk)
         items = CollectionItemModel.objects.filter(
             collection=collection, blacklist=False)

@@ -20,7 +20,7 @@ class StreamList(View):
 
 class StreamDetail(View):
 
-    def get(self, request, pk):
+    def get(self, request, pk, slug):
         stream = StreamModel.objects.get(id=pk)
         items = StreamItemModel.objects.filter(
             stream=stream, blacklist=False)
