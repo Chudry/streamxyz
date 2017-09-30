@@ -28,6 +28,7 @@ class CollectionModel(models.Model):
         db_table = 'collection'
         verbose_name = 'Collection'
         verbose_name_plural = 'Collections'
+        ordering = ['-views']
 
 
 class CollectionItemModel(models.Model):

@@ -142,3 +142,11 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     }
 }
+
+# by default local memory cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}

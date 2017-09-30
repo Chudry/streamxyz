@@ -29,6 +29,7 @@ class StreamModel(models.Model):
         db_table = 'stream'
         verbose_name = 'Stream'
         verbose_name_plural = 'Streams'
+        ordering = ['-views']
 
 
 class StreamItemModel(models.Model):
