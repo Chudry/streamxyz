@@ -2,38 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title> {% block title %} Stream XYZ  {% endblock %}</title>
-  <base href="/">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107330411-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name='description' content='{% block meta_description %}Share, Discover and Organize Content with simple tools.{% endblock %}'>
-  <meta name='keywords' content='{% block meta_keywords %} Share Content, Bookmark, Entertainment, Fashion, Learning Resources, Book reviews.{% endblock %}'>
-  <meta name='robots' content='index, follow'>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Latest compiled and minified CSS -->
-  <!-- Later to be replaced by webpack bundles -->
-  <link rel="stylesheet" href='/static/node_modules/bootstrap/dist/css/bootstrap.min.css'>
-  <link rel="stylesheet" href='/static/node_modules/tether/dist/css/tether.min.css'>
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" href='/static/node_modules/font-awesome/css/font-awesome.css'>
+        function gtag() {
+            dataLayer.push(arguments)
+        };
+        gtag('js', new Date());
+
+        gtag('config', 'UA-107330411-1');
+    </script>
+
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> {% block title %} Stream XYZ {% endblock %}</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='description' content='{% block meta_description %}Share, Discover and Organize Content with simple tools.{% endblock %}'>
+    <meta name='keywords' content='{% block meta_keywords %} Share Content, Bookmark, Entertainment, Fashion, Learning Resources, Book reviews.{% endblock %}'>
+    <meta name='robots' content='index, follow'>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <!-- Later to be replaced by webpack bundles -->
+    <link rel="stylesheet" href='/static/node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href='/static/node_modules/tether/dist/css/tether.min.css'>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href='/static/node_modules/font-awesome/css/font-awesome.css'>
 
     <link rel="stylesheet" href='/static/site/css/blog.css'>
     <link rel="stylesheet" href='/static/site/css/main.css'>
 </head>
 
 <body>
-  <script src="/static/node_modules/popper.js/dist/umd/popper.min.js"></script>
-  <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="/static/vendor/js.cookie.js"></script>
-  <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/static/vendor/pace.min.js"></script>
+    <script src="/static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/vendor/js.cookie.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/vendor/pace.min.js"></script>
 
-  <script src="/static/site/js/main.js"></script>
-  {% block page %}
-  {% endblock %}
+    <script src="/static/site/js/main.js"></script>
+    {% block page %} {% endblock %}
 </body>
 
 </html>
