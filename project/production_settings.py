@@ -1,7 +1,7 @@
 from .base_settings import *
 
 import os
-import urlparse
+from urllib import parse
 
 import dj_database_url
 
@@ -13,7 +13,7 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-redis_url = urlparse.urlparse(os.environ.get('REDIS_URL'))
+redis_url = parse.urlparse(os.environ.get('REDIS_URL'))
 CACHES = {
     "default": {
          "BACKEND": "redis_cache.RedisCache",
