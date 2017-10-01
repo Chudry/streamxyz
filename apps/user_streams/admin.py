@@ -54,3 +54,7 @@ class StreamItemAdmin(admin.ModelAdmin):
     list_display = ('stream', 'title', 'author', )
     readonly_fields = ('author', )
     form = StreamItemForm
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        super(StreamItemAdmin, self).save_model(request, obj, form, change)

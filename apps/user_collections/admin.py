@@ -54,3 +54,7 @@ class CollectionItemAdmin(admin.ModelAdmin):
     list_display = ('collection', 'title', 'author', )
     readonly_fields = ('author', )
     form = CollectionItemForm
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        super(CollectionItemAdmin, self).save_model(request, obj, form, change)
