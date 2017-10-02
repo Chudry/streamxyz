@@ -37,13 +37,12 @@
         {{question.question|safe}}
       </div>
     </div>
-    <hr>
-    <label class='question-label' for='question_{{question.order_index}}_option_a_answer'>
+
       <div class='row'>
-        <div class='col-sm-2'>
-          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_a_answer' name='question_{{question.order_index}}_option_a_answer'>
-        </div>
-        <div class='col-sm-10
+        <div class='col-sm-12'>
+          <input type='checkbox'  autocomplete='off' class=' question-checkbox' id='question_{{question.order_index}}_option_a_answer' name='question_{{question.order_index}}_option_a_answer'>
+
+        <div title='Option A' class='question-option-div
         {% if show_answer %}
           {% if answers.option_a_answer %}
             {% if question.option_a_correct %}
@@ -53,18 +52,18 @@
             {% endif %}
           {% endif %}
         {% endif %}
-        '>
+        '  target='#question_{{question.order_index}}_option_a_answer'>
           {{question.option_a|safe}}
         </div>
       </div>
-    </label>
-    <br>
-    <label class='question-label' for='question_{{question.order_index}}_option_b_answer'>
+      </div>
+
+
       <div class='row'>
-        <div class='col-sm-2'>
-          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_b_answer' name='question_{{question.order_index}}_option_b_answer'>
-        </div>
-        <div class='col-sm-10
+        <div class='col-sm-12'>
+          <input type='checkbox' autocomplete='off'  class='question-checkbox' id='question_{{question.order_index}}_option_b_answer' name='question_{{question.order_index}}_option_b_answer'>
+
+        <div title='Option B' class='question-option-div
         {% if show_answer %}
           {% if answers.option_b_answer %}
             {% if question.option_b_correct %}
@@ -74,18 +73,18 @@
             {% endif %}
           {% endif %}
         {% endif %}
-        '>
+        ' target='#question_{{question.order_index}}_option_b_answer'>
           {{question.option_b|safe}}
         </div>
       </div>
-    </label>
+      </div>
 
-    <label class='question-label' for='question_{{question.order_index}}_option_c_answer'>
+
       <div class='row'>
-        <div class='col-sm-2'>
-          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_c_answer' name='question_{{question.order_index}}_option_c_answer'>
-        </div>
-        <div class='col-sm-10
+        <div  title='Option C' class='col-sm-12'>
+          <input type='checkbox'  autocomplete='off'  class=' question-checkbox' id='question_{{question.order_index}}_option_c_answer' name='question_{{question.order_index}}_option_c_answer'>
+
+        <div class='question-option-div
         {% if show_answer %}
           {% if answers.option_c_answer %}
             {% if question.option_c_correct %}
@@ -95,18 +94,17 @@
             {% endif %}
           {% endif %}
         {% endif %}
-        '>
+        ' target='#question_{{question.order_index}}_option_c_answer'>
           {{question.option_c|safe}}
         </div>
-      </div>
-    </label>
-
-    <label class='question-label' for='question_{{question.order_index}}_option_d_answer'>
-      <div class='row'>
-        <div class='col-sm-2'>
-          <input type='checkbox' class='form-control question-checkbox' id='question_{{question.order_index}}_option_d_answer' name='question_{{question.order_index}}_option_d_answer'>
         </div>
-        <div class='col-sm-10
+      </div>
+
+
+      <div class='row'>
+        <div title='Option D' class='col-sm-12'>
+          <input type='checkbox'  autocomplete='off'  class='question-checkbox' id='question_{{question.order_index}}_option_d_answer' name='question_{{question.order_index}}_option_d_answer'>
+        <div class='question-option-div
         {% if show_answer %}
           {% if answers.option_d_answer %}
             {% if question.option_d_correct %}
@@ -116,11 +114,12 @@
             {% endif %}
           {% endif %}
         {% endif %}
-        '>
+        ' target='#question_{{question.order_index}}_option_d_answer'>
           {{question.option_d|safe}}
         </div>
       </div>
-    </label>
+      </div>
+
     {% if show_answer %}
     <hr>
     Correct Answer/s:
@@ -171,4 +170,27 @@
 
   </div>
 </div>
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+  $('.question-option-div').click(function(){
+    console.log('clicked option');
+    var target = $(this).attr('target');
+    var pre = $(target).prop('checked');
+
+    if(pre==true){
+      console.log('uncheck');
+      $(target).prop('checked', false);
+      $(this).removeClass('option-selected');
+    }else{
+      console.log('check');
+      $(target).prop('checked', true);
+      $(this).addClass('option-selected');
+    }
+
+  });
+});
+
+</script>
 {% endblock %}

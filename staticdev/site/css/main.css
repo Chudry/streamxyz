@@ -12,17 +12,26 @@
   display: block;
 }
 
-.question-checkbox{
-  margin-top: 7px;
-}
 
 .question-box{
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
   border-radius: 4px;
 }
 
+.question-checkbox{
+  display: none;
+}
+
+.question-option-div{
+  border: 1px solid #868e96;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 7px;
+}
 
 .question-explanation{
   font-family: sans-serif;
@@ -30,11 +39,18 @@
 
 
 .answer-correct{
-  border: 1px solid green;
+  border: 2px solid #28a745;
 }
 
+
 .answer-incorrect{
-  border: 1px solid red;
+  border: 2px solid #c82333;
+}
+
+
+
+.option-selected{
+  border: 2px solid #17a2b8;
 }
 
 .list-item-box{
