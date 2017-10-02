@@ -19,7 +19,7 @@
 
 
   {% for quiz in quizzes %}
-  <div class="blog-post">
+  <div class="list-item-box">
     <a href='/quizzes/{{quiz.id}}/{{quiz.slug}}/'><h2 class="blog-post-title">{{quiz.name}}</h2></a>
     {{quiz.description|safe}}
   </div><!-- /.blog-post -->

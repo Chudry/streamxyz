@@ -18,7 +18,7 @@
   <div class="col-sm-8 blog-main">
 
   {% for stream in streams %}
-  <div class="blog-post">
+  <div class="list-item-box">
     <a href='/streams/{{stream.id}}/{{stream.slug}}/'><h2 class="blog-post-title">{{stream.name}} </h2></a>
     {{stream.description|safe}}
   </div><!-- /.blog-post -->

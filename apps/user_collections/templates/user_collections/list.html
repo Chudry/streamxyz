@@ -19,7 +19,7 @@
 
 
   {% for collection in collections %}
-  <div class="blog-post">
+  <div class="list-item-box">
     <a href='/collections/{{collection.id}}/{{collection.slug}}/'><h2 class="blog-post-title">{{collection.name}}</h2></a>
     {{collection.description|safe}}
   </div><!-- /.blog-post -->
