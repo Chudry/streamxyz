@@ -1,6 +1,7 @@
 {% extends "public_page.html" %}
 
 
+{% block title %} {{collection.name}} {% endblock %}
 {% block meta_description %} {{collection.description|striptags|truncatechars:200}} {% endblock %}
 {% block meta_keywords %} {{collection.meta_keywords|truncatechars:200}} {% endblock %}
 
