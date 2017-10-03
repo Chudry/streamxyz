@@ -1,6 +1,6 @@
 {% extends "public_page.html" %}
 
-{% block meta_description %} {{stream.description|truncatechars:200}} {% endblock %}
+{% block meta_description %} {{stream.description|striptags|truncatechars:200}} {% endblock %}
 {% block meta_keywords %} {{stream.meta_keywords|truncatechars:200}} {% endblock %}
 
 {% block public_page %}

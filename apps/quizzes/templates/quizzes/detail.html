@@ -1,7 +1,7 @@
 {% extends "public_page.html" %}
 
 
-{% block meta_description %} {{quiz.description|truncatechars:200}} {% endblock %}
+{% block meta_description %} {{quiz.description|striptags|truncatechars:200}} {% endblock %}
 {% block meta_keywords %} {{quiz.meta_keywords|truncatechars:200}} {% endblock %}
 
 {% block public_page %}
