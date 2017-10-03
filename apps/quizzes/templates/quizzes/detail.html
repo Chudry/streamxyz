@@ -34,6 +34,9 @@
         <div class='question-index'><b> {{question.order_index}} </b></div>
       </div>
       <div class='col-sm-11'>
+        <span class='badge badge-dark pull-right'>
+          {% if question.question_type == 'mcq_single' %} single {% else %} multiple {% endif %}
+        </span>
         {{question.question|safe}}
       </div>
     </div>
