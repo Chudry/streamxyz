@@ -70,5 +70,5 @@
 
 
 @media only screen and (max-width: 600px) {
-   .mobile-hide{ display: block !important; }
+   .mobile-hide{ display: none !important; }
 }
