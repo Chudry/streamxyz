@@ -57,9 +57,9 @@
 
   <form action='' method='POST'>
     {% csrf_token %}
-  <h4 class='banner'> Questions </h4>
+  <h4 class='banner' id='questionsBanner'> Questions </h4>
   {% for question, answers in questions %}
-  <div class="question-box">
+  <div class="question-box" id='question-container-{{question.order_index}}'>
     <div class='row'>
       <div class='col-sm-1'>
         <div class='question-index'><b> {{question.order_index}} </b></div>
@@ -201,13 +201,24 @@
   </div>
 
   <div class="col-sm-3 offset-sm-1 blog-sidebar">
-
+    <div id='quiz-nav'>
+      <strong>Question Navigation </strong>
+      <div class='row' >
+      {% for question, answers in questions %}
+        <div class='col-sm-2'>
+          <button class='btn btn-light question-nav-button' target='#question-container-{{question.order_index}}'>{{question.order_index}}</button>
+        </div>
+      {% endfor %}
+      </div>
+     </div>
   </div>
+
 </div>
 
 <script type='text/javascript'>
 
 $(document).ready(function(){
+
   $('.question-option-div').click(function(){
     console.log('clicked option');
     var target = $(this).attr('target');
@@ -224,6 +235,18 @@ $(document).ready(function(){
     }
 
   });
+
+
+  $("#quiz-nav").sticky({topSpacing:150});
+
+  $('.question-nav-button').click(function(){
+      var target = $(this).attr('target');
+      $("html, body").animate({
+        scrollTop: $(target).offset().top
+    }, 200);
+  });
+
+
 });
 
 </script>
