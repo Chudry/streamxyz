@@ -13,7 +13,7 @@ class StreamModel(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, related_name='user_streams')
-    private = models.BooleanField(default=False)
+    private = models.BooleanField(default=True)
     blacklist = models.BooleanField(default=False)
     views = models.IntegerField(default=0)
 
