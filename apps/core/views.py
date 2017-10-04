@@ -12,8 +12,8 @@ class HomeView(View):
 
     def get(self, request):
         context = {
-            'streams': StreamModel.objects.all()[0:10],
-            'collections': CollectionModel.objects.all()[0:10],
-            'quizzes': QuizModel.objects.all()[0:10]
+            'streams': StreamModel.objects.filter(private=False, blacklist=False)[0:10],
+            'collections': CollectionModel.objects.filter(private=False, blacklist=False)[0:10],
+            'quizzes': QuizModel.objects.filter(private=False, blacklist=False)[0:10]
         }
         return render(request, 'core/home.html', context)
