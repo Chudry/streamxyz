@@ -32,7 +32,7 @@ class QuestionInline(admin.StackedInline):
     model = QuestionModel
     form = QuestionForm
     readonly_fields = ('order_index', )
-    extra = 5
+    extra = 1
 
 
 @admin.register(QuizModel)

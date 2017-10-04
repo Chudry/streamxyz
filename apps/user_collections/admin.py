@@ -27,7 +27,7 @@ class CollectionItemInline(admin.StackedInline):
     model = CollectionItemModel
     form = CollectionItemForm
     readonly_fields = ('author', 'order_index', 'keywords', 'video_url', )
-    extra = 2
+    extra = 1
 
 
 @admin.register(CollectionModel)

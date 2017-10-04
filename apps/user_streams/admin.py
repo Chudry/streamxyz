@@ -27,7 +27,7 @@ class StreamItemInline(admin.StackedInline):
     model = StreamItemModel
     form = StreamItemForm
     readonly_fields = ('author', 'keywords', 'video_url', )
-    extra = 2
+    extra = 1
 
 
 @admin.register(StreamModel)
