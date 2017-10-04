@@ -34,7 +34,7 @@ class StreamItemInline(admin.StackedInline):
 class StreamAdmin(admin.ModelAdmin):
     list_display = ('name', 'author', )
     inlines = [StreamItemInline]
-    readonly_fields = ('author', 'views', )
+    readonly_fields = ('author', 'views', 'slug', 'video_url', )
     form = StreamForm
 
     def save_formset(self, request, form, formset, change):

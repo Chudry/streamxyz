@@ -26,7 +26,7 @@ class CollectionForm(forms.ModelForm):
 class CollectionItemInline(admin.StackedInline):
     model = CollectionItemModel
     form = CollectionItemForm
-    readonly_fields = ('author', 'order_index', 'keywords', )
+    readonly_fields = ('author', 'order_index', 'keywords', 'video_url', )
     extra = 2
 
 
@@ -34,7 +34,7 @@ class CollectionItemInline(admin.StackedInline):
 class CollectionAdmin(admin.ModelAdmin):
     list_display = ('name', 'author', )
     inlines = [CollectionItemInline]
-    readonly_fields = ('author', 'views', )
+    readonly_fields = ('author', 'views', 'slug', )
     form = CollectionForm
 
     def save_formset(self, request, form, formset, change):

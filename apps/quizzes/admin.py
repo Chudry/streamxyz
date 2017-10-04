@@ -39,7 +39,7 @@ class QuestionInline(admin.StackedInline):
 class QuizAdmin(admin.ModelAdmin):
     list_display = ('name', 'author', )
     inlines = [QuestionInline]
-    readonly_fields = ('author', 'views', )
+    readonly_fields = ('author', 'views', 'slug', )
     form = QuizForm
 
     def save_model(self, request, obj, form, change):
