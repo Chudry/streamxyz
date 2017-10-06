@@ -37,7 +37,7 @@ class QuestionInline(admin.StackedInline):
 
 @admin.register(QuizModel)
 class QuizAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', )
+    list_display = ('name', 'author', 'views', )
     inlines = [QuestionInline]
     readonly_fields = ('author', 'views', 'slug', )
     form = QuizForm
