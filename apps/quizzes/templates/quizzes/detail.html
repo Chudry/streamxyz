@@ -2,7 +2,7 @@
 
 {% block title %} {{quiz.name}} {% endblock %}
 {% block meta_description %} {{quiz.description|striptags|truncatechars:200}} {% endblock %}
-{% block meta_keywords %} {{quiz.meta_keywords|truncatechars:200}} {% endblock %}
+{% block meta_keywords %} {{quiz.keywords|truncatechars:200}} {% endblock %}
 
 {% block public_page %}
 
@@ -201,7 +201,7 @@
       </div>
       <div class='form-group'>
         <label for='interest'>Interest</label>
-        <input type='interest'  autocomplete='on' class='form-control' name='interest' placeholder='ssc, ies, ias, programming' required>
+        <input type='interest'  autocomplete='on' class='form-control' name='interest' value='{{quiz.keywords}}' required>
       </div>
     </div>
   </div>
