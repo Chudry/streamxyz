@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'users',
     'user_streams',
     'user_collections',
-    'quizzes'
+    'quizzes',
+    'subscribers'
 ]
 
 MIDDLEWARE = [

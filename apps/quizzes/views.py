@@ -6,7 +6,8 @@ from django.views import View
 from django.core.cache import cache
 
 
-from quizzes.models import QuizModel, QuestionModel
+from quizzes.models import QuizModel, QuestionModel, AnswerModel
+from subscribers.models import SubscriberModel
 
 
 class QuizList(View):
@@ -48,6 +49,10 @@ class QuizDetail(View):
         score = 0
         questions = []
 
+        email = request.POST.get('email', '')
+        name = request.POST.get('name', '')
+        interest = request.POST.get('interest', '')
+
         for question in question_qs:
             answers = {}
             option_a_answer = request.POST.get(
@@ -73,6 +78,15 @@ class QuizDetail(View):
             }
             questions.append((question, answers))
 
+        if email:
+            AnswerModel.objects.create(
+                quiz=quiz,
+                email=email,
+                score=score)
+            SubscriberModel.objects.create(
+                email=email,
+                name=name,
+                interest=interest)
         context = {
             'show_answer': True,
             'answers': answers,

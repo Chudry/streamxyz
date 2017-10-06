@@ -17,6 +17,9 @@ class QuizModel(models.Model):
     blacklist = models.BooleanField(default=False)
     views = models.IntegerField(default=0)
 
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(QuizModel, self).save(*args, **kwargs)
@@ -76,3 +79,17 @@ class QuestionModel(models.Model):
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
         ordering = ['order_index']
+
+
+class AnswerModel(models.Model):
+    quiz = models.ForeignKey(QuizModel)
+    score = models.IntegerField(default=0)
+    email = models.EmailField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'answer'
+        verbose_name = 'Answer'
+        verbose_name_plural = 'Answers'
+        ordering = ['id']

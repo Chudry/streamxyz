@@ -4,7 +4,7 @@ from django import forms
 from ckeditor.widgets import CKEditorWidget
 
 
-from .models import QuizModel, QuestionModel
+from .models import QuizModel, QuestionModel, AnswerModel
 
 
 class QuestionForm(forms.ModelForm):
@@ -51,3 +51,8 @@ class QuizAdmin(admin.ModelAdmin):
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question', 'order_index', )
     form = QuestionForm
+
+
+@admin.register(AnswerModel)
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('email', 'score', 'quiz', )
