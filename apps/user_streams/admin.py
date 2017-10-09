@@ -32,7 +32,7 @@ class StreamItemInline(admin.StackedInline):
 
 @admin.register(StreamModel)
 class StreamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', )
+    list_display = ('name', 'author', 'views', )
     inlines = [StreamItemInline]
     readonly_fields = ('author', 'views', 'slug', )
     form = StreamForm

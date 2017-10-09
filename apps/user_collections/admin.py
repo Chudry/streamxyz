@@ -32,7 +32,7 @@ class CollectionItemInline(admin.StackedInline):
 
 @admin.register(CollectionModel)
 class CollectionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', )
+    list_display = ('name', 'author', 'views', )
     inlines = [CollectionItemInline]
     readonly_fields = ('author', 'views', 'slug', )
     form = CollectionForm
