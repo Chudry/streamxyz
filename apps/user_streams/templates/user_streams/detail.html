@@ -17,7 +17,8 @@
     <p class="blog-post-meta">{{stream.created_on|date}} by <a>{{stream.author.username}}</a></p>
     {{stream.description|safe}}
   </div><!-- /.blog-post -->
-
+  <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+  <br>
   <h4 class='banner'> Posts </h4>
   {% for item in items %}
   <div class="list-item-box">
