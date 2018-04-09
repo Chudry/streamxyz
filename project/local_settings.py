@@ -4,7 +4,7 @@ from .base_settings import *
 # Database
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "68165119.ngrok.io"]
 
 DEBUG = True
 
